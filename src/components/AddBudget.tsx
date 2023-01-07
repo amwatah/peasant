@@ -1,21 +1,20 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useLocalStorage } from "@mantine/hooks";
+
 import { Button, NumberInput, Select, TextInput } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import React, { useState } from "react";
-import { AddTransaction, TransactionType } from "../../store";
+import type { TransactionType } from "../../store";
+import { AddTransaction } from "../../store";
 
 const AddBudget = () => {
   const [title, setTitle] = useState("");
-  const [type, setType] = useState<"expense" | "saving" | "investment">(
-    "expense"
-  );
+  const [type, setType] = useState("expense");
   const [amount, setAmount] = useState(0);
 
   function makeTransation() {
     AddTransaction({
       name: title,
-      type: type,
+      type: type as TransactionType,
       amount: amount,
     });
     setTitle("");
