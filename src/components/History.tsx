@@ -9,7 +9,7 @@ import { showNotification } from "@mantine/notifications";
 const History = () => {
   const budgetSnapShot = useSnapshot(budgetStore);
   return (
-    <div className=" grid  w-full gap-2 sm:grid-cols-3">
+    <div className=" container mx-auto my-5 grid  w-full gap-2 sm:grid-cols-3">
       <section className="expenses text-center">
         <Text color="grape" className=" font-bold uppercase">
           EXPENSES

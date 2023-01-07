@@ -19,9 +19,10 @@ const Totals = () => {
     0
   );
   return (
-    <div className=" w-full text-center">
+    <div className=" flex w-full justify-center text-center">
       <RingProgress
         size={330}
+        rootColor="dark"
         label={
           <h2 className=" font-bold">{`TOTAL ${
             expenseTotal + savingsTotal + investmentTotal
@@ -30,26 +31,36 @@ const Totals = () => {
         thickness={27}
         sections={[
           {
-            value: Math.round(
+            value:
               (expenseTotal / (expenseTotal + savingsTotal + investmentTotal)) *
-                100
-            ),
+              100,
             color: "grape",
+            tooltip: `EXPENSES :  ${expenseTotal} (${
+              (expenseTotal / (expenseTotal + savingsTotal + investmentTotal)) *
+              100
+            }%)`,
           },
           {
-            value: Math.round(
+            value:
               (savingsTotal / (expenseTotal + savingsTotal + investmentTotal)) *
-                100
-            ),
+              100,
             color: "orange",
+            tooltip: `SAVINGS :  ${savingsTotal} (${
+              (savingsTotal / (expenseTotal + savingsTotal + investmentTotal)) *
+              100
+            }%)`,
           },
           {
-            value: Math.round(
+            value:
               (investmentTotal /
                 (expenseTotal + savingsTotal + investmentTotal)) *
-                100
-            ),
+              100,
             color: "teal",
+            tooltip: `INVESTMENTS :  ${investmentTotal} (${
+              (investmentTotal /
+                (expenseTotal + savingsTotal + investmentTotal)) *
+              100
+            }%)`,
           },
         ]}
       />
