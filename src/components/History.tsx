@@ -15,24 +15,23 @@ const History = () => {
           EXPENSES
         </Text>
         {budgetSnapShot.expenses.map((expense, index) => (
-          <div
-            key={index}
-            className="  flex w-full items-center justify-between p-2 shadow-lg"
-          >
-            <span className=" font-bold uppercase">{expense.name}</span>
+          <div key={index} className="  flex w-full  p-2 shadow-lg">
             <span className=" font-bold">
               {new Intl.NumberFormat(undefined, {
                 style: "currency",
                 currency: "Ksh",
               }).format(expense.amount)}
             </span>
+            <span className=" grow text-center font-bold uppercase">
+              {expense.name}
+            </span>
             <ActionIcon className=" shadow-2xl">
               <Icon
                 onClick={() => {
                   DeleteTransation(expense);
                   showNotification({
-                    message: `${expense.name} DELETED expenses`,
-                    title: "DELETED",
+                    message: `${expense.name} DELETED from investments`,
+                    title: "DELETED ",
                   });
                 }}
                 className=" text-2xl  text-red-700"
@@ -48,12 +47,14 @@ const History = () => {
         </Text>
         {budgetSnapShot.investments.map((expense, index) => (
           <div key={index} className=" flex w-full justify-between">
-            <span className=" font-bold uppercase">{expense.name}</span>
             <span className=" font-bold">
               {new Intl.NumberFormat(undefined, {
                 style: "currency",
                 currency: "Ksh",
               }).format(expense.amount)}
+            </span>
+            <span className=" grow text-center font-bold uppercase">
+              {expense.name}
             </span>
             <ActionIcon className=" shadow-2xl">
               <Icon
@@ -77,12 +78,14 @@ const History = () => {
         </Text>
         {budgetSnapShot.savings.map((expense, index) => (
           <div key={index} className=" flex w-full justify-between">
-            <span className=" font-bold uppercase">{expense.name}</span>
             <span className=" font-bold">
               {new Intl.NumberFormat(undefined, {
                 style: "currency",
                 currency: "Ksh",
               }).format(expense.amount)}
+            </span>
+            <span className=" grow text-center font-bold uppercase">
+              {expense.name}
             </span>
             <ActionIcon className=" shadow-2xl">
               <Icon

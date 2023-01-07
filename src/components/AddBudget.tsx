@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useLocalStorage } from "@mantine/hooks";
-import {
-  Autocomplete,
-  Button,
-  NumberInput,
-  Select,
-  TextInput,
-} from "@mantine/core";
+import { Button, NumberInput, Select, TextInput } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import React, { useState } from "react";
 import { AddTransaction, TransactionType } from "../../store";
